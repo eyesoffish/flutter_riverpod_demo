@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CounterPage extends StatelessWidget {
-  final counterStateProvider = StateProvider<int>((ref) {
+final counterStateProvider = StateProvider<int>((ref) {
     return 0;
-  });
+});
+class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

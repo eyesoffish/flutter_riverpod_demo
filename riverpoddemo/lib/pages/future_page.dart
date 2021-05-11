@@ -17,11 +17,17 @@ class FuturePage extends ConsumerWidget {
     final futurevale = watch(futureProvider);
     return Scaffold(
       appBar: AppBar(title: Text("Future"),),
-      body: Center(
-        child: futurevale.when(
-          data: (data) => Text('value: $data'), 
-          loading: () => CircularProgressIndicator(), 
-          error: (e, st) => Text("Error: $e")
+      body: ProviderListener<AsyncValue<int>>(
+        provider: futureProvider,
+        onChange: (context, value) {
+          
+        },
+        child: Center(
+          child: futurevale.when(
+            data: (data) => Text('value: $data'), 
+            loading: () => CircularProgressIndicator(), 
+            error: (e, st) => Text("Error: $e")
+          ),
         ),
       ),
     );
